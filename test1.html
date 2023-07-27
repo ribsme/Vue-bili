@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <h1>系统名称：{{title}}</h1>
+        <ul>
+            <li v-for="(item,i) in products">
+                名称: {{item.name}}
+                <span>{{item.stock}}</span>
+                <button @click="remove(i)">删除</button>
+            </li>
+        </ul>
+    </div>
+    <script src="./vue.min.js"></script>
+    <script>
+        new Vue({ //配置
+            el : "#app",//css选择器
+            data :{//和界面相关的数据
+                tittle : "库存管理系统",
+                products : [
+                    {name : "iphone" , stock : 10},
+                    {name : "xiaomi" , stock : 5},
+                    {name : "huawei" , stock : 6},
+                ],
+            },
+            methods : {
+                remove(i){
+                    this.products.splice(i,1);
+                }
+            }
+        })
+    </script>
+</body>
+</html>
